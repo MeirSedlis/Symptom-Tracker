@@ -11,6 +11,7 @@ import Typography from "@mui/material/Typography";
 import InfoIcon from "@mui/icons-material/Info";   
 
 function SymptomItem({symptom}){
+
     return(
         <Box key={symptom.id}>
         <Grid item xs={12} md={6}>
@@ -18,6 +19,7 @@ function SymptomItem({symptom}){
           </Typography>
             <List >
                 <ListItem
+                
                   secondaryAction={
                     <IconButton edge="end" aria-label="info">
                       <InfoIcon />
