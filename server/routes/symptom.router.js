@@ -6,9 +6,21 @@ const { rejectUnauthenticated} = require('../modules/authentication-middleware')
 /**
  * GET route template
  */
-router.get('/', (req, res) => {
-  // GET route code here
-});
+ router.get('/', rejectUnauthenticated, (req, res) => {
+     //gets all symptoms
+    console.log('req.user', req.user)
+    const sqlQuery = `
+      SELECT * FROM "symptoms";
+    `
+    pool.query(sqlQuery)
+      .then((dbRes) => {
+        res.send(dbRes.rows);
+      })
+      .catch((dbErr) => {
+        console.log('ERROR in GET /api/things', dbErr);
+        res.sendStatus(500);
+      })
+  });
 
 /**
  * POST route template
