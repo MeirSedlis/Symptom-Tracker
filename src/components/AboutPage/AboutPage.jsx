@@ -9,7 +9,7 @@ function AboutPage() {
   return (
     <div className="container">
       <div>
-        <p>This about page is for anyone to read!</p>
+        <p>Symptom Tracker, The App is a simple tool designed to help facilitate better communication between patients and clinicians. Historically, interventions for patient-provider communication have generally targeted providers. By giving patients a free, accessible, and intuitive tool for tracking their issues, I aim to make patients better at advocating for themselves, and to provide clinicians with more accurate data about what’s happening in between visits</p>
       </div>
     </div>
   );
