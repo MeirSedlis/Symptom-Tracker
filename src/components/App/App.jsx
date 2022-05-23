@@ -21,6 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
 import './App.css';
+import SymptomTracker from '../SymptomTracker/SymptomTracker';
 
 function App() {
   const dispatch = useDispatch();
@@ -45,7 +46,7 @@ function App() {
             exact
             path="/about"
           >
-            <AboutPage />
+            <SymptomTracker />
           </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.
