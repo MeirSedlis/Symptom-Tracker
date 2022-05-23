@@ -17,7 +17,7 @@ const { rejectUnauthenticated} = require('../modules/authentication-middleware')
         res.send(dbRes.rows);
       })
       .catch((dbErr) => {
-        console.log('ERROR in GET /api/things', dbErr);
+        console.log('ERROR in GET /api/symptom', dbErr);
         res.sendStatus(500);
       })
   });
