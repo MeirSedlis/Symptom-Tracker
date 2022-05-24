@@ -46,7 +46,7 @@ function App() {
             exact
             path="/about"
           >
-            <SymptomTracker />
+            <AboutPage />
           </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.
@@ -67,6 +67,14 @@ function App() {
             path="/info"
           >
             <InfoPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows SymptomTracker else shows LoginPage
+            exact
+            path="/tracker"
+          >
+            <SymptomTracker />
           </ProtectedRoute>
 
           <Route

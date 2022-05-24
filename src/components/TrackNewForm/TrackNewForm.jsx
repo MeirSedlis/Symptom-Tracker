@@ -1,6 +1,6 @@
 function TrackNewForm() {
     return(
-        
+        <h1>Hi I'm a form</h1>
     )
 }
 
