@@ -21,7 +21,7 @@ function TrackNewForm() {
 
   const handleClick = (e) => {
     e.preventDefault;
-    console.log(newSymptom);
+    console.log('The value of newSymptom is:', newSymptom);
   };
 
   return (
@@ -31,7 +31,12 @@ function TrackNewForm() {
           id="symptoms"
           freeSolo
           options={symptoms.map((option) => option.symptom)}
-          renderInput={(params) => <TextField {...params} label="symptoms" />}
+          renderInput={(params) => <TextField {...params} label="symptoms"
+          value={newSymptom}
+          onChange={(event, newSymptom) =>{
+              setNewSymptom(newSymptom);
+          }} 
+          />}
         />
         <Box textAlign="center">
         <Button size="medium" variant="contained" onClick={handleClick}>
