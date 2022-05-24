@@ -48,6 +48,7 @@ export default function ButtonAppBar() {
           >
             <MenuItem onClick={(e)=>{history.push('/user')}}>Profile</MenuItem>
             <MenuItem onClick={(e)=>{history.push('/tracker')}}>Symptom Tracker</MenuItem>
+            <MenuItem onClick={(e)=>{history.push('/about')}}>About</MenuItem>
             <MenuItem onClick={() => dispatch({ type: "LOGOUT" })}>Logout</MenuItem>
           </Menu>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
