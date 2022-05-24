@@ -6,12 +6,14 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { useState } from 'react';
-import Menu from '@mui/material/Menu';
-import { useDispatch } from 'react-redux';
+import { useState } from "react";
+import Menu from "@mui/material/Menu";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router";
 
 export default function ButtonAppBar() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -44,14 +46,16 @@ export default function ButtonAppBar() {
               "aria-labelledby": "basic-button",
             }}
           >
-            <MenuItem onClick={handleClose}>Profile</MenuItem>
-            <MenuItem onClick={handleClose}>My account</MenuItem>
-            <MenuItem onClick={handleClose}>Logout</MenuItem>
+            <MenuItem onClick={(e)=>{history.push('/user')}}>Profile</MenuItem>
+            <MenuItem onClick={(e)=>{history.push('/tracker')}}>Symptom Tracker</MenuItem>
+            <MenuItem onClick={() => dispatch({ type: "LOGOUT" })}>Logout</MenuItem>
           </Menu>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Symptom Tracker
           </Typography>
-          <Button color="inherit" onClick={() => dispatch({ type: 'LOGOUT' })}>BEEP</Button>
+          <Button color="inherit">
+            BEEP
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>
