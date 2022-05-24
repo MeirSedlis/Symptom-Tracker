@@ -17,14 +17,12 @@ function TrackNewForm() {
   const symptoms = useSelector((store) => store.symptom);
   const dispatch = useDispatch();
   const history = useHistory();
-  const [newSymptom, setNewSymptom] = useState("");
   const [inputValue, setInputValue] = useState("");
   const [value, setValue] = useState("");
 
   const handleClick = (e) => {
     e.preventDefault();
     console.log("this is the reliable value of the autocomplete", inputValue);
-    // console.log('The values of newSymptom is:', newSymptom);
   };
 
   return (
@@ -36,14 +34,11 @@ function TrackNewForm() {
           options={symptoms.map((option) => option.symptom)}
           value={value}
           onChange={(event, newValue) => {
-            console.log("hello");
             setValue(newValue);
-            console.log("in onchange", newValue);
           }}
           inputValue={inputValue}
           onInputChange={(event, newInputValue) => {
             setInputValue(newInputValue);
-            console.log("in oninputchange", newInputValue);
           }}
           renderInput={(params) => (
             <TextField
