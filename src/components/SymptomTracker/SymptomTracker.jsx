@@ -13,7 +13,7 @@ import { useHistory } from 'react-router';
 function SymptomTracker() {
   useEffect(() => {
     dispatch({
-      type: "FETCH_SYMPTOMS",
+      type: "FETCH_USER_SYMPTOMS",
     });
   }, []);
   
