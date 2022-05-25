@@ -22,6 +22,24 @@ const { rejectUnauthenticated} = require('../modules/authentication-middleware')
       })
   });
 
+  router.get('/user', rejectUnauthenticated, (req, res) => {
+    //gets all active symptoms for the currently logged in user
+   console.log('req.user', req.user)
+   const sqlQuery = `
+   SELECT * FROM "symptoms"
+   JOIN "user_symptom" on symptom_id = symptoms.id
+     WHERE user_id = $1 AND active = TRUE;
+   `
+   pool.query(sqlQuery, req.user.id)
+     .then((dbRes) => {
+       res.send(dbRes.rows);
+     })
+     .catch((dbErr) => {
+       console.log('ERROR in GET /api/symptom/user', dbErr);
+       res.sendStatus(500);
+     })
+ });
+
 /**
  * POST route template
  */
