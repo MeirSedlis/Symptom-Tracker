@@ -14,13 +14,14 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import Slider from '@mui/material/Slider'  
+import Slider from '@mui/material/Slider';  
+import Button from '@mui/material/Button';
 import {useState} from 'react';
 
 function SymptomItem({symptom}){
 
 const logSymptom = () =>{
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
 
     const handleClickOpen = () => {
       setOpen(true);
@@ -72,9 +73,10 @@ const logSymptom = () =>{
                     </IconButton>
                   }
                 >
-                 <Typography onClick={logSymptom}>
+                 <Button onClick={logSymptom}>
                      {symptom.symptom}
-                 </Typography>
+                 </Button>
+                 
                 </ListItem>
             </List>
         </Grid>

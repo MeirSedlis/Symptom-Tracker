@@ -25,7 +25,7 @@ export default function FormDialog() {
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
-        Open form dialog
+      {symptom.symptom}
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Intensity</DialogTitle>
