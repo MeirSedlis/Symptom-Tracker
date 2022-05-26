@@ -17,10 +17,12 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Slider from "@mui/material/Slider";
 import Button from "@mui/material/Button";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 function SymptomItem({ symptom }) {
   const [open, setOpen] = useState(false);
   const [intensity, setIntensity] = useState(1);
+  const dispatch = useDispatch();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -31,6 +33,13 @@ function SymptomItem({ symptom }) {
   };
 
   const handleSubmit = () => {
+    dispatch({
+      type: "LOG_SYMPTOM",
+      data: { 
+        intensity: intensity,
+        id: symptom.id
+      }
+    });
     setOpen(false);
   };
 

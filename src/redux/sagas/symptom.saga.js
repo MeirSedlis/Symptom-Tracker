@@ -25,9 +25,19 @@ function* fetchUserSymptoms(){
     })
 }
 
+function* logSymptom(action){
+    //HTTP POST log symptom for the logged in user
+    const response = yield axios ({
+        method: 'POST',
+        url: '/api/symptom',
+        data: action.payload
+    })
+}
+
 function* symptomSaga(){
     yield takeEvery('FETCH_SYMPTOMS', fetchSymptoms);
-    yield takeEvery('FETCH_USER_SYMPTOMS', fetchUserSymptoms)
+    yield takeEvery('FETCH_USER_SYMPTOMS', fetchUserSymptoms);
+    yield takeEvery('LOG_SYMPTOM', logSymptom);
 }
 
 export default symptomSaga;
