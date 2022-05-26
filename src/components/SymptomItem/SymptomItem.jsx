@@ -53,8 +53,8 @@ function SymptomItem({ symptom }) {
   const detail = symptom.id
   const getDetails = () => {
     dispatch({
-      type: "SET_DETAIL",
-      payload: {detail}
+      type: "FETCH_DETAILS",
+      payload: detail
     });
     history.push(`/detail/${detail}`)
   };

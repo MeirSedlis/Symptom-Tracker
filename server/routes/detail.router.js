@@ -13,7 +13,7 @@ const { rejectUnauthenticated} = require('../modules/authentication-middleware')
    SELECT * from "symptom_log"
    WHERE user_symptom_id = $1;
    `
-   pool.query(sqlQuery)
+   pool.query(sqlQuery, sqlValues)
      .then((dbRes) => {
        res.send(dbRes.rows);
      })
