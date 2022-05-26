@@ -35,7 +35,7 @@ function SymptomItem({ symptom }) {
   const handleSubmit = () => {
     dispatch({
       type: "LOG_SYMPTOM",
-      data: { 
+      payload: { 
         intensity: intensity,
         id: symptom.id
       }

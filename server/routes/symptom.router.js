@@ -45,6 +45,7 @@ const { rejectUnauthenticated} = require('../modules/authentication-middleware')
  * POST log a symptom to the DB
  */
 router.post('/', rejectUnauthenticated, (req, res) => {
+  console.log(req.body)
   const sqlValues=[req.body.intensity, req.body.id]
   const sqlQuery = `
     INSERT INTO "symptom_log"
