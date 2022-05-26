@@ -20,6 +20,7 @@ import { useState } from "react";
 
 function SymptomItem({ symptom }) {
   const [open, setOpen] = useState(false);
+  const [intensity, setIntensity] = useState(1);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -32,6 +33,12 @@ function SymptomItem({ symptom }) {
   const handleSubmit = () => {
     setOpen(false);
   };
+
+  const handleSlider = (e) => {
+    setIntensity(e.target.value);
+    console.log(symptom)
+  };
+
 
   return (
     <Box key={symptom.id}>
@@ -55,8 +62,7 @@ function SymptomItem({ symptom }) {
               <DialogTitle>Intensity</DialogTitle>
               <DialogContent>
                 <DialogContentText>
-                  Please rate the intensity of this symptom on a scale of 1 (not
-                  very intense) to 5 (very intense)
+                  Please rate the intensity of this symptom on a scale of 1 (mild) to 5 (very intense)
                 </DialogContentText>
                 <Slider
                   aria-label="symptom intensity"
@@ -66,6 +72,7 @@ function SymptomItem({ symptom }) {
                   min={1}
                   max={5}
                   valueLabelDisplay="auto"
+                  onChange={handleSlider}
                 />
               </DialogContent>
               <DialogActions>

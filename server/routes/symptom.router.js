@@ -42,10 +42,23 @@ const { rejectUnauthenticated} = require('../modules/authentication-middleware')
  });
 
 /**
- * POST route template
+ * POST log a symptom to the DB
  */
-router.post('/', (req, res) => {
-  // POST route code here
+router.post('/', rejectUnauthenticated, (req, res) => {
+  const sqlValues=[req.body.intensity, req.body.id]
+  const sqlQuery = `
+    INSERT INTO "symptom_log"
+      ("intensity", "user_symptom_id")
+    VALUES
+      ($1, $2)  
+  `
+  pool.query(sqlQuery, sqlValues)
+  .then((dbRes)=>{
+    res.sendStatus(201)
+  })
+  .catch((dbErr)=>{
+    res.sendStatus500
+  })
 });
 
 module.exports = router;
