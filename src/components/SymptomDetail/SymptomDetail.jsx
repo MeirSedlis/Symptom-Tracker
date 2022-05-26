@@ -3,7 +3,8 @@ import {useSelector} from 'react-redux';
 
 function SymptomDetail(){
     const details = useSelector((store)=>store.details);
-
+    console.log(details);
+    
     return (
         <>
         <h1>I am the details you were looking for</h1>

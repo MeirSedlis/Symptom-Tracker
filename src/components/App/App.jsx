@@ -23,6 +23,7 @@ import RegisterPage from "../RegisterPage/RegisterPage";
 import "./App.css";
 import SymptomTracker from "../SymptomTracker/SymptomTracker";
 import TrackNewForm from "../TrackNewForm/TrackNewForm";
+import SymptomDetail from "../SymptomDetail/SymptomDetail";
 
 function App() {
   const dispatch = useDispatch();
@@ -85,6 +86,14 @@ function App() {
           >
             <TrackNewForm /> 
 
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows Detail Page
+          exact
+          path="/detail/:id"
+          >
+            <SymptomDetail />
           </ProtectedRoute>
 
           <Route exact path="/login">

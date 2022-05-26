@@ -18,11 +18,13 @@ import Slider from "@mui/material/Slider";
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import {useHistory} from 'react-router';
 
 function SymptomItem({ symptom }) {
   const [open, setOpen] = useState(false);
   const [intensity, setIntensity] = useState(1);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -48,6 +50,14 @@ function SymptomItem({ symptom }) {
     console.log(symptom)
   };
 
+  const detail = symptom.id
+  const getDetails = () => {
+    dispatch({
+      type: "SET_DETAIL",
+      payload: {detail}
+    });
+    history.push(`/detail/${detail}`)
+  };
 
   return (
     <Box key={symptom.id}>
@@ -60,7 +70,7 @@ function SymptomItem({ symptom }) {
         <List>
           <ListItem
             secondaryAction={
-              <IconButton edge="end" aria-label="info">
+              <IconButton edge="end" aria-label="info" onClick={getDetails}>
                 <InfoIcon />
               </IconButton>
             }
