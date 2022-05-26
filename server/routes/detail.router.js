@@ -6,7 +6,7 @@ const { rejectUnauthenticated} = require('../modules/authentication-middleware')
 /**
  * GET route template
  */
- router.get('/', rejectUnauthenticated, (req, res) => {
+ router.get('/:id', rejectUnauthenticated, (req, res) => {
     //gets logs for the selected symptom
    const sqlValues = [req.params.id]
    const sqlQuery = `
