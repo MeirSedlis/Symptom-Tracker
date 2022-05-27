@@ -1,7 +1,5 @@
-import { IconButton, List, ListItem, ListItemText } from '@mui/material';
+import { List, Typography } from '@mui/material';
 import {useSelector} from 'react-redux';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
 import {useDispatch} from 'react-redux'
 import DetailItem from '../DetailItem/DetailItem.jsx'
 
@@ -9,18 +7,13 @@ function SymptomDetail(){
     const details = useSelector((store)=>store.detail);
     const dispatch = useDispatch();
 
-    const deleteLog = () => {
-        dispatch ({
-            type: 'DELETE_LOG',
-            payload: log.id
-        })
-    }
-
     console.log(details);
 
     return (
         <>
-        <h1>I am the details you were looking for</h1>
+        <Typography align="center" variant="h6">
+            Symptom Details
+        </Typography>
         <List>
             {details.map(log=>{
                 return (
