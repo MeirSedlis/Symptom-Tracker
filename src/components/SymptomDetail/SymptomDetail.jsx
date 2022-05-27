@@ -1,11 +1,9 @@
 import { List, Typography } from '@mui/material';
 import {useSelector} from 'react-redux';
-import {useDispatch} from 'react-redux'
 import DetailItem from '../DetailItem/DetailItem.jsx'
 
 function SymptomDetail(){
     const details = useSelector((store)=>store.detail);
-    const dispatch = useDispatch();
 
     console.log(details);
 
