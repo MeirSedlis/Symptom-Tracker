@@ -3,6 +3,7 @@ import {useSelector} from 'react-redux';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import {useDispatch} from 'react-redux'
+import DetailItem from '../DetailItem/DetailItem.jsx'
 
 function SymptomDetail(){
     const details = useSelector((store)=>store.detail);
@@ -23,21 +24,8 @@ function SymptomDetail(){
         <List>
             {details.map(log=>{
                 return (
-                <ListItem
-                    // key={value}
-                    secondaryAction={
-                        <>
-                        <IconButton aria-label="update">
-                            <EditIcon />
-                        </IconButton>
-                        <IconButton aria-label="delete" onClick={deleteLog}>
-                            <DeleteIcon />
-                        </IconButton>
-                        </>
-                    }
-                    >
-                    <ListItemText primary={`${log.inserted_at} intensity:${log.intensity}`} />
-                    </ListItem> )
+                <DetailItem key={log.id} log={log} />
+                    )
             })}
         </List>
         </>
