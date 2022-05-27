@@ -2,9 +2,18 @@ import { IconButton, List, ListItem, ListItemText } from '@mui/material';
 import {useSelector} from 'react-redux';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import {useDispatch} from 'react-redux'
 
 function SymptomDetail(){
     const details = useSelector((store)=>store.detail);
+    const dispatch = useDispatch();
+
+    const deleteLog = () => {
+        dispatch ({
+            type: 'DELETE_LOG',
+            payload: log.id
+        })
+    }
 
     console.log(details);
 
@@ -21,7 +30,7 @@ function SymptomDetail(){
                         <IconButton aria-label="update">
                             <EditIcon />
                         </IconButton>
-                        <IconButton aria-label="delete">
+                        <IconButton aria-label="delete" onClick={deleteLog}>
                             <DeleteIcon />
                         </IconButton>
                         </>

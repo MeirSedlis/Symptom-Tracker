@@ -30,4 +30,17 @@ router.post('/', (req, res) => {
   // POST route code here
 });
 
+router.delete('/:id', (req, res) => {
+
+  console.log(req)
+  const queryText = `DELETE FROM "symptom_log" 
+	WHERE id=$1`;
+  pool.query(queryText, [req.params.id])
+    .then(() => { res.sendStatus(200); })
+    .catch((err) => {
+      console.log('Error deleting symptom log', err);
+      res.sendStatus(500);
+    });
+});
+
 module.exports = router;
