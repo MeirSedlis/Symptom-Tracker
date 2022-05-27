@@ -10,10 +10,10 @@ function DetailItem({log}){
     const deleteLog = () => {
         dispatch ({
             type: 'DELETE_LOG',
-            payload: log.id
+            payload: {id: log.id, user_symptom_id: log.user_symptom_id}
         })
     }
-    
+
     return(
         <ListItem
                     secondaryAction={

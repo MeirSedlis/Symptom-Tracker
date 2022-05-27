@@ -1,6 +1,5 @@
 import { put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
-import { yellow } from '@mui/material/colors';
 
 function* fetchDetails(action){
   // HTTP GET details
@@ -16,10 +15,10 @@ function* fetchDetails(action){
 
 function* deleteLog(action){
     const response = yield axios({
-        method: 'DELETE_LOG',
-        url: `/api/detail/${action.payload}`
+        method: 'DELETE',
+        url: `/api/detail/${action.payload.id}`
     });
-    yield put ({type:'FETCH_DETAILS'})
+    yield put ({type:'FETCH_DETAILS', payload: action.payload.user_symptom_id})
 }
 
 function* detailSaga(){
