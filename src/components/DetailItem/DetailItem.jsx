@@ -4,8 +4,10 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import {useDispatch} from 'react-redux';
 import { DateTime } from 'luxon';
 
+
 function DetailItem({log}){
     const dispatch = useDispatch();
+
 
     const deleteLog = () => {
         dispatch ({

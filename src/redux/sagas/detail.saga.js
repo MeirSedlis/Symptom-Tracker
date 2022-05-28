@@ -13,6 +13,7 @@ function* fetchDetails(action){
   })
 }
 
+
 function* deleteLog(action){
     const response = yield axios({
         method: 'DELETE',
