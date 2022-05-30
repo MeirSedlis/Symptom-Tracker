@@ -11,7 +11,8 @@ const { rejectUnauthenticated} = require('../modules/authentication-middleware')
    const sqlValues = [req.params.id]
    const sqlQuery = `
    SELECT * from "symptom_log"
-   WHERE user_symptom_id = $1;
+   WHERE user_symptom_id = $1
+   ORDER BY inserted_at DESC;
    `
    pool.query(sqlQuery, sqlValues)
      .then((dbRes) => {
