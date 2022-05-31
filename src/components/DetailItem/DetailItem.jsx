@@ -1,9 +1,10 @@
-import { MenuItem, IconButton, InputLabel, ListItem, ListItemText, Select, Dialog, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+import { Button, MenuItem, IconButton, InputLabel, ListItem, ListItemText, Select, Dialog, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import {useDispatch} from 'react-redux';
 import { DateTime } from 'luxon';
 import {useState} from 'react';
+import { DialogActions } from '@material-ui/core';
 
 function DetailItem({log}){
     const dispatch = useDispatch();
@@ -15,6 +16,10 @@ function DetailItem({log}){
             type: 'DELETE_LOG',
             payload: {id: log.id, user_symptom_id: log.user_symptom_id}
         })
+    }
+
+    const updateLog = () => {
+        
     }
 
 
@@ -62,6 +67,11 @@ function DetailItem({log}){
                                  <MenuItem value="5">5</MenuItem>
                                  </Select> 
                             </DialogContent>
+                            <DialogActions>
+                                <Button variant="outlined" onClick={updateLog}>
+                                    Submit
+                                </Button>
+                            </DialogActions>
                         </Dialog>
                         </>
                     }

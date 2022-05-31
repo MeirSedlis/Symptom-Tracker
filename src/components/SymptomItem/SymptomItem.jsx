@@ -93,11 +93,13 @@ function SymptomItem({ symptom }) {
                   valueLabelDisplay="auto"
                   onChange={handleSlider}
                 />
+                
               </DialogContent>
               <DialogActions>
                 <Button onClick={handleClose}>Cancel</Button>
                 <Button onClick={handleSubmit}>Log</Button>
               </DialogActions>
+              
             </Dialog>
           </ListItem>
         </List>
