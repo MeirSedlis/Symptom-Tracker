@@ -7,6 +7,6 @@ const detailReducer = (state = [], action) => {
         default:
           return state;
       }
-    };
+    }
 
     export default detailReducer;
