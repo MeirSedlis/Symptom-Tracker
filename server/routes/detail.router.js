@@ -34,11 +34,15 @@ router.post("/", (req, res) => {
   // POST route code here
 });
 
-//update intensity !!!!! FINISH HIM!!!!!!!!!!
+//update intensity
 router.put("/:id", (req, res) => {
   console.log(req.body);
-  const sqlQuery = ``;
-  const sqlValues = [];
+  const sqlQuery = `UPDATE "symptom_log"
+	SET
+		intensity = $1
+	WHERE
+		id = $2;`;
+  const sqlValues = [req.body, req.params.id];
   pool
     .query(sqlQuery, sqlValues)
     .then((dbRes) => {
