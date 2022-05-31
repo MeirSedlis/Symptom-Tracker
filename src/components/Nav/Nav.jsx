@@ -19,9 +19,25 @@ export default function ButtonAppBar() {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const clickProfile = () =>{
+    history.push('/user');
+    handleClose();
+  }
+
+  const clickTracker = () =>{
+    history.push('/tracker');
+    handleClose();
+  }
+
+  const clickAbout = () =>{
+    history.push('/about');
+    handleClose();
+  }
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -46,9 +62,9 @@ export default function ButtonAppBar() {
               "aria-labelledby": "basic-button",
             }}
           >
-            <MenuItem onClick={(e)=>{history.push('/user')}}>Profile</MenuItem>
-            <MenuItem onClick={(e)=>{history.push('/tracker')}}>Symptom Tracker</MenuItem>
-            <MenuItem onClick={(e)=>{history.push('/about')}}>About</MenuItem>
+            <MenuItem onClick={clickProfile}>Profile</MenuItem>
+            <MenuItem onClick={clickTracker}>Symptom Tracker</MenuItem>
+            <MenuItem onClick={clickAbout}>About</MenuItem>
             <MenuItem onClick={() => dispatch({ type: "LOGOUT" })}>Logout</MenuItem>
           </Menu>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>

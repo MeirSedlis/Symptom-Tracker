@@ -33,7 +33,7 @@ function DetailItem({ log }) {
     });
   };
 
-  // sends the http request to update a log
+  // sends the http request to update a log FINISH HIM!!!!!!!!!!!!!@)(#&$@)(#&$)
   const updateLog = () => {};
 
   // controls the edit dialog
