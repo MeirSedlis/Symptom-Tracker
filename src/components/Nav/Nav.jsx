@@ -16,24 +16,30 @@ export default function ButtonAppBar() {
   const history = useHistory();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+
+ 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
+  // function to close navigation menu
   const handleClose = () => {
     setAnchorEl(null);
   };
 
+  // click handler for profile link
   const clickProfile = () =>{
     history.push('/user');
     handleClose();
   }
 
+  // click handler for symptom tracker link
   const clickTracker = () =>{
     history.push('/tracker');
     handleClose();
   }
 
+  // click handler for about link
   const clickAbout = () =>{
     history.push('/about');
     handleClose();
