@@ -22,9 +22,20 @@ function* deleteLog(action){
     yield put ({type:'FETCH_DETAILS', payload: action.payload.user_symptom_id})
 }
 
+function* editIntensity(action){
+    try{
+        const itemToEdit=action.payload;
+        console.log('itemToEdit in editIntensity:', itemToEdit);
+    }
+    catch(err){
+        console.log(err)
+    }
+}
+
 function* detailSaga(){
     yield takeEvery('FETCH_DETAILS', fetchDetails);
     yield takeEvery('DELETE_LOG', deleteLog);
+    yield takeEvery('EDIT_INTENSITY', editIntensity);
 }
 
 export default detailSaga

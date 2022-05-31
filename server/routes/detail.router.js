@@ -30,8 +30,22 @@ router.get("/:id", rejectUnauthenticated, (req, res) => {
 /**
  * POST route template
  */
-router.post("/", (req, res) => {
-  // POST route code here
+ router.post('/', rejectUnauthenticated, (req, res) => {
+  console.log(req.body)
+  const sqlValues=[req.body.intensity, req.body.id]
+  const sqlQuery = `
+    INSERT INTO "symptom_log"
+      ("intensity", "user_symptom_id")
+    VALUES
+      ($1, $2)  
+  `
+  pool.query(sqlQuery, sqlValues)
+  .then((dbRes)=>{
+    res.sendStatus(201)
+  })
+  .catch((dbErr)=>{
+    res.sendStatus500
+  })
 });
 
 //update intensity

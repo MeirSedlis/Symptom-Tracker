@@ -29,7 +29,7 @@ function* logSymptom(action){
     //HTTP POST log symptom for the logged in user
     const response = yield axios ({
         method: 'POST',
-        url: '/api/symptom',
+        url: '/api/detail',
         data: action.payload
     })
 }

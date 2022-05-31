@@ -16,11 +16,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { DateTime } from "luxon";
 import { useState, useEffect } from "react";
 import { DialogActions } from "@material-ui/core";
-import { useParams, useHistory } from 'react-router-dom';
-
+import { useParams, useHistory } from "react-router-dom";
 
 function DetailItem({ log }) {
-
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [newIntensity, setNewIntensity] = useState("");
@@ -34,7 +32,12 @@ function DetailItem({ log }) {
   };
 
   // sends the http request to update a log FINISH HIM!!!!!!!!!!!!!@)(#&$@)(#&$)
-  const updateLog = () => {};
+  const updateLog = () => {
+    dispatch({
+      type: "EDIT_INTENSITY",
+      payload: { newIntensity },
+    });
+  };
 
   // controls the edit dialog
   const handleClickOpen = () => {
