@@ -8,22 +8,22 @@ import {
 
 import { useDispatch, useSelector } from "react-redux";
 
-import Nav from "../Nav/Nav";
-import Footer from "../Footer/Footer";
+import Nav from "../Hardware/Nav/Nav";
+import Footer from "../Hardware/Footer/Footer";
 
-import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import ProtectedRoute from "../Hardware/ProtectedRoute/ProtectedRoute";
 
-import AboutPage from "../AboutPage/AboutPage";
-import UserPage from "../UserPage/UserPage";
-import InfoPage from "../InfoPage/InfoPage";
-import LandingPage from "../LandingPage/LandingPage";
-import LoginPage from "../LoginPage/LoginPage";
-import RegisterPage from "../RegisterPage/RegisterPage";
+import AboutPage from "../Hardware/AboutPage/AboutPage";
+import UserPage from "../Registration/UserPage/UserPage";
+import InfoPage from "../Hardware/InfoPage/InfoPage";
+import LandingPage from "../Hardware/LandingPage/LandingPage";
+import LoginPage from "../Registration/LoginPage/LoginPage";
+import RegisterPage from "../Registration/RegisterPage/RegisterPage";
 
 import "./App.css";
-import SymptomTracker from "../SymptomTracker/SymptomTracker";
-import TrackNewForm from "../TrackNewForm/TrackNewForm";
-import SymptomDetail from "../SymptomDetail/SymptomDetail";
+import SymptomTracker from "../Tracker/SymptomTracker/SymptomTracker";
+import TrackNewForm from "../Tracker/TrackNewForm/TrackNewForm";
+import SymptomDetail from "../Detail View/SymptomDetail/SymptomDetail";
 
 function App() {
   const dispatch = useDispatch();
