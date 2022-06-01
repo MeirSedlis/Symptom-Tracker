@@ -77,8 +77,8 @@ export default function ButtonAppBar() {
             Symptom Tracker
           </Typography>
           <Button color="inherit">
-            BEEP
-          </Button>
+            <img src="../../../doctor.png"/>
+         </Button>
         </Toolbar>
       </AppBar>
     </Box>
