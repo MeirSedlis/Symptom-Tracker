@@ -31,7 +31,7 @@ function SymptomDetail() {
   });
 
 
-  const [detailData, setDetailData] = useState({
+  const detailData= {
     labels: labels,
     datasets: [
       {
@@ -39,7 +39,7 @@ function SymptomDetail() {
         data: data,
       },
     ],
-  });
+  };
 
   // console.log("dateData", dateData);
   // console.log("data", intensityData);
