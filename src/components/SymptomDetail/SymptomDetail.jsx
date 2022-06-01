@@ -19,6 +19,9 @@ function SymptomDetail() {
   
   const details = useSelector((store) => store.detail);
 
+  const data = details.map((detail)=>{return detail.intensity})
+  console.log("data", data)
+
   console.log("params: ", params);
 
   return (
