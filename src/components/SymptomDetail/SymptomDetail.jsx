@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import DetailItem from "../DetailItem/DetailItem.jsx";
 import { useParams, useHistory } from "react-router-dom";
 import { Line } from "react-chartjs-2";
-import {Chart as ChartJS} from "chart.js/auto"
+import {Chart as ChartJS} from "chart.js/auto";
 import { DateTime } from "luxon";
 
 function SymptomDetail() {
@@ -27,15 +27,16 @@ function SymptomDetail() {
     return detail.intensity;
   });
   const labels = details.map((detail) => {
-    return DateTime.fromISO(detail.inserted_at);
+    return DateTime.fromISO(detail.inserted_at).toLocaleString(DateTime.DATE_SHORT);
   });
 
+  
 
   const detailData= {
     labels: labels.reverse(),
     datasets: [
       {
-        label: "Intensity",
+         label: "Intensity",
         data: data,
       },
     ],
