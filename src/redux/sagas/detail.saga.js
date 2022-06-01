@@ -31,7 +31,7 @@ function* editIntensity(action){
             url: `/api/detail/${action.payload.id}`,
             data:{itemToEdit},
         })
-        yield put ({ type: 'FETCH_DETAILS'})
+        yield put ({ type: 'FETCH_DETAILS', payload: action.payload.refresher})
     }
     catch(err){
         console.log(err)

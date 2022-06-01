@@ -31,12 +31,13 @@ function DetailItem({ log }) {
     });
   };
 
-  // sends the http request to update a log FINISH HIM!!!!!!!!!!!!!@)(#&$@)(#&$)
+  // sends the http request to update a log 
   const updateLog = () => {
     dispatch({
       type: "EDIT_INTENSITY",
-      payload: { newIntensity: newIntensity, id: log.id},
+      payload: { newIntensity: newIntensity, id: log.id, refresher: log.user_symptom_id},
     });
+    setOpen(false);
   };
 
   // controls the edit dialog
