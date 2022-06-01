@@ -32,7 +32,7 @@ function SymptomDetail() {
 
 
   const detailData= {
-    labels: labels,
+    labels: labels.reverse(),
     datasets: [
       {
         label: "Intensity",
