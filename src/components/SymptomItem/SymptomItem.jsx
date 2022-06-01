@@ -38,7 +38,7 @@ function SymptomItem({ symptom }) {
     dispatch({
       type: "LOG_SYMPTOM",
       payload: { 
-        intensity: intensity,
+        intensity: Number(intensity),
         id: symptom.id
       }
     });

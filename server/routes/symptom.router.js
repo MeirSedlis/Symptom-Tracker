@@ -42,7 +42,7 @@ const { rejectUnauthenticated} = require('../modules/authentication-middleware')
  });
 
 /**
- * POST log a symptom to the DB
+ * POST track a new symptom FINISH HIM!!!!!!!!
  */
 
 

@@ -32,7 +32,7 @@ router.get("/:id", rejectUnauthenticated, (req, res) => {
  */
  router.post('/', rejectUnauthenticated, (req, res) => {
   console.log(req.body)
-  const sqlValues=[req.body.intensity, req.body.id]
+  const sqlValues=[req.body.intensity, req.params.id]
   const sqlQuery = `
     INSERT INTO "symptom_log"
       ("intensity", "user_symptom_id")
@@ -50,13 +50,13 @@ router.get("/:id", rejectUnauthenticated, (req, res) => {
 
 //update intensity
 router.put("/:id", (req, res) => {
-  console.log(req.body);
+  console.log('in put!!!!!!!!!!', req.body);
   const sqlQuery = `UPDATE "symptom_log"
 	SET
 		intensity = $1
 	WHERE
 		id = $2;`;
-  const sqlValues = [req.body, req.params.id];
+  const sqlValues = [req.body.itemToEdit.newIntensity, req.params.id];
   pool
     .query(sqlQuery, sqlValues)
     .then((dbRes) => {

@@ -26,6 +26,12 @@ function* editIntensity(action){
     try{
         const itemToEdit=action.payload;
         console.log('itemToEdit in editIntensity:', itemToEdit);
+        const response = yield axios({
+            method: 'PUT',
+            url: `/api/detail/${action.payload.id}`,
+            data:{itemToEdit},
+        })
+        yield put ({ type: 'FETCH_DETAILS'})
     }
     catch(err){
         console.log(err)

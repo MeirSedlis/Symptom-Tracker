@@ -35,7 +35,7 @@ function DetailItem({ log }) {
   const updateLog = () => {
     dispatch({
       type: "EDIT_INTENSITY",
-      payload: { newIntensity },
+      payload: { newIntensity: newIntensity, id: log.id},
     });
   };
 
