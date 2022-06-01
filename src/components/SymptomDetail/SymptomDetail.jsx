@@ -1,31 +1,49 @@
 import { List, Typography } from "@mui/material";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DetailItem from "../DetailItem/DetailItem.jsx";
 import { useParams, useHistory } from "react-router-dom";
+import { Line } from "react-chartjs-2";
+import {Chart as ChartJS} from "chart.js/auto"
+import { DateTime } from "luxon";
 
 function SymptomDetail() {
-    const params = useParams();
-    const detailID = params.id;
+  const params = useParams();
+  const detailID = params.id;
 
-    useEffect(()=>{
-        dispatch({
-            type: 'FETCH_DETAILS',
-            payload: detailID
-        })
-    }, [detailID])
+  useEffect(() => {
+    dispatch({
+      type: "FETCH_DETAILS",
+      payload: detailID,
+    });
+  }, [detailID]);
 
   const dispatch = useDispatch();
-  
+
   const details = useSelector((store) => store.detail);
 
-  const intensityData = details.map((detail)=>{return detail.intensity});
+  //format detail data for Chart.js
+  const data = details.map((detail) => {
+    return detail.intensity;
+  });
+  const labels = details.map((detail) => {
+    return DateTime.fromISO(detail.inserted_at);
+  });
 
-  const dateData = details.map((detail)=>{return detail.inserted_at});
-  
-  console.log ("dateData", dateData)
-  console.log("data", intensityData)
-  console.log("details", details)
+
+  const [detailData, setDetailData] = useState({
+    labels: labels,
+    datasets: [
+      {
+        label: "Intensity",
+        data: data,
+      },
+    ],
+  });
+
+  // console.log("dateData", dateData);
+  // console.log("data", intensityData);
+  console.log("details", details);
   console.log("params: ", params);
 
   return (
@@ -38,6 +56,7 @@ function SymptomDetail() {
           return <DetailItem key={log.id} log={log} />;
         })}
       </List>
+      <Line data={detailData} />
     </>
   );
 }
