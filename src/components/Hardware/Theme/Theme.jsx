@@ -3,18 +3,21 @@ import { createTheme, ThemeProvider } from '@mui/material';
 const Theme = createTheme({
     palette: {
         primary: {
-          light: '#7094c2',
-          main: '#406691',
-          dark: '#063c63',
+          light: '#8aa492',
+          main: '#5d7564',
+          dark: '#33493a',
           contrastText: '#fff',
         },
         secondary: {
-          light: '#f8b2b1',
-          main: '#c48282',
-          dark: '#925556',
-          contrastText: '#000',
+          light: '#a48c8a',
+          main: '#755f5d',
+          dark: '#493534',
+          contrastText: '#fff',
         },
       },
+      typography: {
+        fontFamily: 'Lato'
+      }
 })
 
 export default Theme;
