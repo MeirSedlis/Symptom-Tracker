@@ -10,17 +10,10 @@ import { useState, useEffect } from "react";
 import Menu from "@mui/material/Menu";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
-import WebFont from 'webfontloader';
+
 
 export default function ButtonAppBar() {
-  useEffect(()=>{
-    WebFont.load({
-      custom:{
-        families: ['sunflower'],
-        urls: ['/fonts.css']
-      }
-    })
-  },[])
+
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -85,7 +78,7 @@ export default function ButtonAppBar() {
             <MenuItem onClick={clickAbout}>About</MenuItem>
             <MenuItem onClick={() => dispatch({ type: "LOGOUT" })}>Logout</MenuItem>
           </Menu>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1},{ fontFamily: "sunflower" }}>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 2}, { fontFamily: "Patua One" }}>
             Symptom Tracker
           </Typography>
           <Button edge="end" onClick={(e)=>{history.push('/tracker')}}>
