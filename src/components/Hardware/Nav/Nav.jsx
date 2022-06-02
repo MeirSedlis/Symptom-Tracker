@@ -17,6 +17,7 @@ export default function ButtonAppBar() {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
+
  
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -76,9 +77,7 @@ export default function ButtonAppBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Symptom Tracker
           </Typography>
-          <Button color="inherit">
-            <img src="../../../doctor.png"/>
-         </Button>
+            <img src="../../../doctor.png"/>     
         </Toolbar>
       </AppBar>
     </Box>

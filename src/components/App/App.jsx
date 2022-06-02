@@ -25,6 +25,9 @@ import SymptomTracker from "../Tracker/SymptomTracker/SymptomTracker";
 import TrackNewForm from "../Tracker/TrackNewForm/TrackNewForm";
 import SymptomDetail from "../Detail View/SymptomDetail/SymptomDetail";
 
+import { createTheme, ThemeProvider } from '@material-ui/core';
+import Theme from "../Hardware/Theme/Theme.jsx";
+
 function App() {
   const dispatch = useDispatch();
 
@@ -35,6 +38,7 @@ function App() {
   }, [dispatch]);
 
   return (
+    <ThemeProvider theme={Theme}>
     <Router>
       <div>
         <Nav />
@@ -137,6 +141,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </ThemeProvider>
   );
 }
 
