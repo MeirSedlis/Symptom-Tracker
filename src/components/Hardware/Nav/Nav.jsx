@@ -6,12 +6,22 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Menu from "@mui/material/Menu";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
+import WebFont from 'webfontloader';
 
 export default function ButtonAppBar() {
+  useEffect(()=>{
+    WebFont.load({
+      custom:{
+        families: ['sunflower'],
+        urls: ['/fonts.css']
+      }
+    })
+  },[])
+
   const dispatch = useDispatch();
   const history = useHistory();
   const [anchorEl, setAnchorEl] = useState(null);
@@ -47,6 +57,7 @@ export default function ButtonAppBar() {
   }
 
   return (
+
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
@@ -74,10 +85,10 @@ export default function ButtonAppBar() {
             <MenuItem onClick={clickAbout}>About</MenuItem>
             <MenuItem onClick={() => dispatch({ type: "LOGOUT" })}>Logout</MenuItem>
           </Menu>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1},{ fontFamily: "sunflower" }}>
             Symptom Tracker
           </Typography>
-          <Button onClick={(e)=>{history.push('/tracker')}}>
+          <Button edge="end" onClick={(e)=>{history.push('/tracker')}}>
             <img src="../../../doctor.png"/>    
             </Button> 
         </Toolbar>

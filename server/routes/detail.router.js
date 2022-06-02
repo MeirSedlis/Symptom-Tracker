@@ -32,7 +32,7 @@ router.get("/:id", rejectUnauthenticated, (req, res) => {
  */
  router.post('/', rejectUnauthenticated, (req, res) => {
   console.log(req.body)
-  const sqlValues=[req.body.intensity, req.params.id]
+  const sqlValues=[req.body.intensity, req.body.id]
   const sqlQuery = `
     INSERT INTO "symptom_log"
       ("intensity", "user_symptom_id")
@@ -44,7 +44,8 @@ router.get("/:id", rejectUnauthenticated, (req, res) => {
     res.sendStatus(201)
   })
   .catch((dbErr)=>{
-    res.sendStatus500
+    console.log('error POST api/detail', dbErr)
+    res.sendStatus(500)
   })
 });
 
