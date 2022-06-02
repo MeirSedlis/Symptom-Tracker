@@ -15,7 +15,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { useDispatch, useSelector } from "react-redux";
 import { DateTime } from "luxon";
 import { useState, useEffect } from "react";
-import { DialogActions } from "@material-ui/core";
+import { DialogActions } from "@mui/material";
 import { useParams, useHistory } from "react-router-dom";
 
 function DetailItem({ log }) {

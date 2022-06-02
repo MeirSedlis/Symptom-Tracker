@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import {Button} from '@material-ui/core';
+import {Button} from '@mui/material';
 
 function LogOutButton(props) {
   const dispatch = useDispatch();

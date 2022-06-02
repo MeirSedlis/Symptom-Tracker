@@ -25,7 +25,7 @@ import SymptomTracker from "../Tracker/SymptomTracker/SymptomTracker";
 import TrackNewForm from "../Tracker/TrackNewForm/TrackNewForm";
 import SymptomDetail from "../Detail View/SymptomDetail/SymptomDetail";
 
-import { createTheme, ThemeProvider } from '@material-ui/core';
+import { createTheme, ThemeProvider } from '@mui/material';
 import Theme from "../Hardware/Theme/Theme.jsx";
 
 function App() {
