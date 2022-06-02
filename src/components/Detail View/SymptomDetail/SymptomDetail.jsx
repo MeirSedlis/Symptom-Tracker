@@ -22,6 +22,8 @@ function SymptomDetail() {
 
   const details = useSelector((store) => store.detail);
 
+
+  
   //format detail data for Chart.js
   const data = details.map((detail) => {
     return detail.intensity;
@@ -30,14 +32,14 @@ function SymptomDetail() {
     return DateTime.fromISO(detail.inserted_at).toLocaleString(DateTime.DATE_SHORT);
   });
 
-  
+
 
   const detailData= {
-    labels: labels,
+    labels: labels.reverse(),
     datasets: [
       {
          label: "Intensity",
-        data: data,
+        data: data.reverse(),
       },
     ],
   };
