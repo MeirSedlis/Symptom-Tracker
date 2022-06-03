@@ -26,7 +26,7 @@ function SymptomTracker() {
         tap a symptom to log it
       </Typography>
       {symptoms.map((symptom) => {
-        return <><Card><SymptomItem symptom={symptom} /></Card></>;
+        return <><Card sx={[{m: 5}]}><SymptomItem symptom={symptom} /></Card></>;
       })}
       <Box textAlign="center">
         <Button size="large" variant="contained" onClick={()=> {history.push('/track-new')}}>
