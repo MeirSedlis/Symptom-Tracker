@@ -67,7 +67,7 @@ function SymptomItem({ symptom }) {
             }
           >
             
-            <Typography variant="h4" onClick={handleClickOpen}>{symptom.symptom}</Typography>
+            <Typography variant="h4" color="secondary.dark" onClick={handleClickOpen}>{symptom.symptom}</Typography>
 
             <Dialog open={open} onClose={handleClose}>
               <DialogTitle>Intensity</DialogTitle>
@@ -77,7 +77,7 @@ function SymptomItem({ symptom }) {
                 </DialogContentText>
                 <Slider
                   aria-label="symptom intensity"
-                  defaultValue={1}
+                  value={1}
                   step={1}
                   marks
                   min={1}

@@ -22,12 +22,13 @@ function SymptomTracker() {
 
   return (
     <>
-      <Typography align="center" variant="h6">
-        tap a symptom to log it
-      </Typography>
+      
       {symptoms.map((symptom) => {
-        return <><Card sx={[{m: 5}]}><SymptomItem symptom={symptom} /></Card></>;
+        return <><Card sx={[{m: 6}, {bgcolor: "secondary.light"}]}><SymptomItem symptom={symptom} /></Card></>;
       })}
+      {/* <Typography align="center"  color="text.disabled">
+        tap a symptom to log it
+      </Typography> */}
       <Box textAlign="center">
         <Button size="large" variant="contained" onClick={()=> {history.push('/track-new')}}>
           Track a New Symptom
