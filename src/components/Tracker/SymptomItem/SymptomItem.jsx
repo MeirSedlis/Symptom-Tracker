@@ -76,7 +76,7 @@ function SymptomItem({ symptom }) {
             }
           >
             
-            <Typography variant="h5" onClick={handleClickOpen}>{symptom.symptom}</Typography>
+            <Typography variant="h6" onClick={handleClickOpen}>{symptom.symptom}</Typography>
 
             <Dialog open={open} onClose={handleClose}>
               <DialogTitle>Intensity</DialogTitle>

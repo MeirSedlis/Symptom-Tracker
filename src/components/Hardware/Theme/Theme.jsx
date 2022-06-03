@@ -16,7 +16,7 @@ const Theme = createTheme({
         },
       },
       typography: {
-        fontFamily: 'Lato'
+        fontFamily: 'Joan'
       }
 })
 

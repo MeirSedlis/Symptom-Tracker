@@ -4,6 +4,7 @@ import SymptomItem from "../SymptomItem/SymptomItem.jsx";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
 import { useHistory } from 'react-router';
 
 function SymptomTracker() {
@@ -25,7 +26,7 @@ function SymptomTracker() {
         tap a symptom to log it
       </Typography>
       {symptoms.map((symptom) => {
-        return <SymptomItem symptom={symptom} />;
+        return <><Card><SymptomItem symptom={symptom} /></Card></>;
       })}
       <Box textAlign="center">
         <Button size="large" variant="contained" onClick={()=> {history.push('/track-new')}}>
