@@ -10,6 +10,7 @@ import {useState} from 'react'
 function TrackerSnacker() {
   const [open, setOpen] = useState(false);
 
+
   const handleClick = () => {
     setOpen(true);
   };
@@ -24,9 +25,7 @@ function TrackerSnacker() {
 
   const action = (
     <>
-      <Button color="secondary" size="small" onClick={handleClose}>
-        UNDO
-      </Button>
+     
       <IconButton
         size="small"
         aria-label="close"
@@ -46,11 +45,13 @@ function TrackerSnacker() {
       </IconButton>
       </Box>
       <Snackbar
+        anchorOrigin={{vertical: "top", horizontal: "center"}}
         open={open}
-        autoHideDuration={6000}
+        autoHideDuration={5500}
         onClose={handleClose}
         message="Tap on the name of a symptom to log it. To view details, tap the (i) button."
         action={action}
+        
       />
     </div>
   );
