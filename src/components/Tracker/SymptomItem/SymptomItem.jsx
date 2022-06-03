@@ -12,6 +12,8 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Slider from "@mui/material/Slider";
 import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
+
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import {useHistory} from 'react-router';
@@ -46,6 +48,8 @@ function SymptomItem({ symptom }) {
     console.log(symptom)
   };
 
+  const toolText = "Details"
+
   const detail = symptom.id
   const getDetails = () => {
     dispatch({
@@ -55,20 +59,27 @@ function SymptomItem({ symptom }) {
     history.push(`/detail/${detail}`)
   };
 
+
   return (
     <Box key={symptom.id}>
       <Grid item xs={12} md={6}>
         <List>
           <ListItem
             secondaryAction={
-              <IconButton edge="end" aria-label="info" onClick={getDetails}>
+             
+               
+                 
+              <IconButton edge="end" aria-label="info" onClick={getDetails} >
+                
                 <InfoIcon />
+                
               </IconButton>
+              
+            
+              
             }
           >
-            
             <Typography variant="h4" color="secondary.dark" onClick={handleClickOpen}>{symptom.symptom}</Typography>
-
             <Dialog open={open} onClose={handleClose}>
               <DialogTitle>Intensity</DialogTitle>
               <DialogContent>
