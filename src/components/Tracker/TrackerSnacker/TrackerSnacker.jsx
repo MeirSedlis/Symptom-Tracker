@@ -40,7 +40,7 @@ function TrackerSnacker() {
   return (
     <div>
       <Box textAlign="right">
-       <IconButton onClick={handleClick}>
+       <IconButton  size="large" onClick={handleClick}>
         <HelpIcon />
       </IconButton>
       </Box>

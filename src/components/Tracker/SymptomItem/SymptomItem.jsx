@@ -88,7 +88,7 @@ function SymptomItem({ symptom }) {
                 </DialogContentText>
                 <Slider
                   aria-label="symptom intensity"
-                  value={1}
+                  defaultValue={1}
                   step={1}
                   marks
                   min={1}
