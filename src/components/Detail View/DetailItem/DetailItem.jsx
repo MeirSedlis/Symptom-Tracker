@@ -66,6 +66,7 @@ function DetailItem({ log }) {
 
   return (
     <ListItem
+    sx={[{m: 1}]}
       secondaryAction={
         <>
           <IconButton aria-label="update" onClick={handleClickOpen}>

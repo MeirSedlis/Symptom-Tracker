@@ -1,7 +1,7 @@
 import {
   List,
   Typography,
-  Stack,
+  Box,
   Pagination,
 } from "@mui/material";
 import { useEffect, useState } from "react";
@@ -73,6 +73,7 @@ function SymptomDetail() {
           return <DetailItem key={log.id} log={log} />;
         })}
       </List>
+      <Box display="flex" justifyContent="center">
       <Pagination
         count={noOfPages}
         page={page}
@@ -81,6 +82,7 @@ function SymptomDetail() {
         showFirstButton
         showLastButton
       />
+      </Box>
       <Line data={detailData} />
     </>
   );
