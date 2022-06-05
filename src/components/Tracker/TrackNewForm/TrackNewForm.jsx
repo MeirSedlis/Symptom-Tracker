@@ -24,7 +24,6 @@ function TrackNewForm() {
   // Post new symptom to the user_symptom table !!!!! FINISH HIM!!!!!!
   const handleClick = (e) => {
     e.preventDefault();
-    console.log("this is the reliable value of the autocomplete", inputValue);
   };
 
   return (

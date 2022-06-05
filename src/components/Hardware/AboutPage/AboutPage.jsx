@@ -3,6 +3,7 @@ import Typography from "@mui/material/Typography";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider"
 
 // This is one of our simplest components
 // It doesn't have local state,
@@ -17,30 +18,28 @@ function AboutPage() {
         <hr/> */}
         <Box textAlign="center">
           <Typography variant="h6">Technologies Used</Typography>
-          <List>
-            <ListItem>React</ListItem>
-            <ListItem>React Redux</ListItem>
-            <ListItem>Redux Saga</ListItem>
-            <ListItem>Material UI</ListItem>
-            <ListItem>Express</ListItem>
-            <ListItem>Node.js</ListItem>
-            <ListItem>PostgreSQL</ListItem>
-            <ListItem>Chart.js</ListItem>
-          </List>
-          <hr />
+            <Typography color="text.secondary">React</Typography>
+            <Typography color="text.secondary">React Redux</Typography>
+            <Typography color="text.secondary">Redux Saga</Typography>
+            <Typography color="text.secondary">Material UI</Typography>
+            <Typography color="text.secondary">Express</Typography>
+            <Typography color="text.secondary">Node.js</Typography>
+            <Typography color="text.secondary">PostgreSQL</Typography>
+            <Typography color="text.secondary">Chart.js</Typography>
+          <Divider sx={[{mt:2}, {mb:2}]}/>
           <Typography variant="h6">Goals</Typography>
-          <List>
-            <ListItem>Integrate APIs to track things like medications, providers, and facilities where users receive care.</ListItem>
-          </List>
-          <hr />
+          <Typography sx={{mb: 2}} color="text.secondary">
+            Integrate APIs to track things like medications, providers, and
+            facilities where users receive care.
+          </Typography>
+          <Divider sx={[{mt:2}, {mb:2}]}/>
           <Typography variant="h6">Thank You!</Typography>
-          <List>
-            <ListItem>Our Instructor Matt</ListItem>
-            <ListItem>The Dahl Cohort</ListItem>
-            <ListItem>Prime Digital Academy</ListItem>
-            <ListItem>My Friends and Family</ListItem>
-            <ListItem>Idgie and Edmond</ListItem>
-          </List>
+            <Typography color="text.secondary">Our Instructor Matt</Typography>
+            <Typography color="text.secondary">The Dahl Cohort</Typography>
+            <Typography color="text.secondary">Prime Digital Academy</Typography>
+            <Typography color="text.secondary">My Friends and Family</Typography>
+            <Typography color="text.secondary">Idgie and Edmond</Typography>
+         
         </Box>
       </div>
     </div>

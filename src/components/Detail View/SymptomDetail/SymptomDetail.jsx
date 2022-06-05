@@ -56,11 +56,6 @@ function SymptomDetail() {
     ],
   };
 
-  
-  // console.log("dateData", dateData);
-  // console.log("data", intensityData);
-  console.log("details", details);
-  console.log("params: ", params);
 
   return (
     <>

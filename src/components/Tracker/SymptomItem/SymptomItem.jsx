@@ -44,7 +44,6 @@ function SymptomItem({ symptom }) {
 
   const handleSlider = (e) => {
     setIntensity(e.target.value);
-    console.log(symptom);
   };
 
   const toolText = "Details";

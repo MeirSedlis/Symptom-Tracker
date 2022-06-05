@@ -11,8 +11,8 @@ function UserPage() {
   const history = useHistory();
   return (
     <div className="container">
-      <Typography variant="h4">Welcome, {user.username}!</Typography>
-      <Typography>This app is designed to help facilitate conversations with your clinician, not replace them.</Typography>
+      <Typography textTransform="capitalize" variant="h4">Welcome, {user.username}!</Typography>
+      <Typography color="text.secondary" sx={{m:2}}>This app is designed to help facilitate conversations with your clinician, not replace them.</Typography>
       <Button variant="contained" onClick={(e)=>{history.push('/tracker')}}>Get Started</Button>
       <br/>
       <br/>

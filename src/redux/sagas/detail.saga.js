@@ -25,7 +25,6 @@ function* deleteLog(action){
 function* editIntensity(action){
     try{
         const itemToEdit=action.payload;
-        console.log('itemToEdit in editIntensity:', itemToEdit);
         const response = yield axios({
             method: 'PUT',
             url: `/api/detail/${action.payload.id}`,
