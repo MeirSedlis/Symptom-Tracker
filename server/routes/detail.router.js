@@ -12,10 +12,11 @@ router.get("/:id", rejectUnauthenticated, (req, res) => {
   //gets logs for the selected symptom
   const sqlValues = [req.params.id];
   const sqlQuery = `
-   SELECT * from "symptom_log"
-   WHERE user_symptom_id = $1
-   ORDER BY inserted_at DESC;
-   `;
+  SELECT symptom_log.id, intensity, symptom_log.inserted_at, user_symptom_id, symptom from "symptom_log"
+  JOIN user_symptom on symptom_log.user_symptom_id = user_symptom.id
+  JOIN "symptoms" on symptoms.id = user_symptom.symptom_id
+    WHERE user_symptom_id = $1
+    ORDER BY inserted_at DESC;`
   pool
     .query(sqlQuery, sqlValues)
     .then((dbRes) => {

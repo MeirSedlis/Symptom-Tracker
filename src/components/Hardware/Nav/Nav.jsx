@@ -78,8 +78,11 @@ export default function ButtonAppBar() {
             <MenuItem onClick={clickAbout}>About</MenuItem>
             <MenuItem onClick={() => dispatch({ type: "LOGOUT" })}>Logout</MenuItem>
           </Menu>
-          <Typography variant="h5" edge="start" component="div" sx={[{ flexGrow: 2}, {fontFamily: 'Forum'}]}>
-            Symptom Tracker
+          <Typography variant="h5" edge="start" component="div" sx={[{fontFamily: 'Forum'}, {fontWeight: 'bold'}]}>
+          Symptom 
+          </Typography> 
+          <Typography variant="h5" edge="start" component="div" sx={[{ flexGrow: 2}, {fontFamily: 'Forum'}, {fontStyle: 'italic'}]}>
+          Tracker
           </Typography> 
           <Button edge="end" onClick={(e)=>{history.push('/tracker')}}>
             <img src="../../../doctor.png"/>    

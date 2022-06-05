@@ -16,6 +16,7 @@ function SymptomDetail() {
   const params = useParams();
   const detailID = params.id;
 
+  
   useEffect(() => {
     dispatch({
       type: "FETCH_DETAILS",
@@ -26,7 +27,7 @@ function SymptomDetail() {
   const dispatch = useDispatch();
 
   const details = useSelector((store) => store.detail);
-
+  
   const itemsPerPage = 7;
   const [page, setPage] = useState(1);
   const [noOfPages] = useState(Math.ceil(details.length / itemsPerPage));
@@ -55,6 +56,7 @@ function SymptomDetail() {
     ],
   };
 
+
   // console.log("dateData", dateData);
   // console.log("data", intensityData);
   console.log("details", details);
@@ -62,8 +64,8 @@ function SymptomDetail() {
 
   return (
     <>
-      <Typography align="center" variant="h6">
-        Symptom Details
+      <Typography sx={[{pt: 2}, {textTransform: 'capitalize'}]} color="primary.dark" align="center" variant="h5">
+        Symptom Details: {details[0].symptom}
       </Typography>
 
       <List>
