@@ -31,6 +31,7 @@ function TrackNewForm() {
     <>
       <form>
         <Autocomplete
+          sx={[{pt: 3}, {m:3}]}
           id="symptoms"
           freeSolo
           options={symptoms.map((option) => option.symptom)}
@@ -50,10 +51,11 @@ function TrackNewForm() {
           )}
         />
         <Box textAlign="center">
-          <Button size="medium" variant="contained" onClick={handleClick}>
+          <Button sx={{m: 1}} size="medium" variant="contained" onClick={handleClick}>
             Track
           </Button>
           <Button
+            sx={{m: 1}} 
             size="medium"
             variant="outlined"
             color="error"
