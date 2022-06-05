@@ -56,7 +56,7 @@ function SymptomDetail() {
     ],
   };
 
-
+  
   // console.log("dateData", dateData);
   // console.log("data", intensityData);
   console.log("details", details);
@@ -65,7 +65,7 @@ function SymptomDetail() {
   return (
     <>
       <Typography sx={[{pt: 2}, {textTransform: 'capitalize'}]} color="primary.dark" align="center" variant="h5">
-        Symptom Details: {details[0].symptom}
+        Details: {details[0] && details[0].symptom}
       </Typography>
 
       <List>

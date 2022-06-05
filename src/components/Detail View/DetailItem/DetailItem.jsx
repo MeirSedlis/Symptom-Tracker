@@ -17,6 +17,7 @@ import { DateTime } from "luxon";
 import { useState, useEffect } from "react";
 import { DialogActions } from "@mui/material";
 import { useParams, useHistory } from "react-router-dom";
+import { typography } from "@mui/system";
 
 function DetailItem({ log }) {
   const dispatch = useDispatch();
