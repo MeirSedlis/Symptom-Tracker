@@ -28,11 +28,6 @@ function AboutPage() {
             <ListItem>Chart.js</ListItem>
           </List>
           <hr />
-          <Typography variant="h6">Challenges</Typography>
-          <List>
-            <ListItem>Staying in scope</ListItem>
-          </List>
-          <hr />
           <Typography variant="h6">Goals</Typography>
           <List>
             <ListItem>Integrate APIs to track things like medications, providers, and facilities where users receive care.</ListItem>

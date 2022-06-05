@@ -31,11 +31,15 @@ function DetailItem({ log }) {
     });
   };
 
-  // sends the http request to update a log 
+  // sends the http request to update a log
   const updateLog = () => {
     dispatch({
       type: "EDIT_INTENSITY",
-      payload: { newIntensity: newIntensity, id: log.id, refresher: log.user_symptom_id},
+      payload: {
+        newIntensity: newIntensity,
+        id: log.id,
+        refresher: log.user_symptom_id,
+      },
     });
     setOpen(false);
   };
@@ -49,6 +53,8 @@ function DetailItem({ log }) {
   const handleClose = () => {
     setOpen(false);
   };
+
+  
 
   // sets the value of the slider in the edit dialog
   const handleChange = (e) => {

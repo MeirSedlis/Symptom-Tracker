@@ -12,11 +12,10 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Slider from "@mui/material/Slider";
 import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import {useHistory} from 'react-router';
+import { useHistory } from "react-router";
 
 function SymptomItem({ symptom }) {
   const [open, setOpen] = useState(false);
@@ -35,30 +34,29 @@ function SymptomItem({ symptom }) {
   const handleSubmit = () => {
     dispatch({
       type: "LOG_SYMPTOM",
-      payload: { 
+      payload: {
         intensity: Number(intensity),
-        id: symptom.id
-      }
+        id: symptom.id,
+      },
     });
     setOpen(false);
   };
 
   const handleSlider = (e) => {
     setIntensity(e.target.value);
-    console.log(symptom)
+    console.log(symptom);
   };
 
-  const toolText = "Details"
+  const toolText = "Details";
 
-  const detail = symptom.id
+  const detail = symptom.id;
   const getDetails = () => {
     dispatch({
       type: "FETCH_DETAILS",
-      payload: detail
+      payload: detail,
     });
-    history.push(`/detail/${detail}`)
+    history.push(`/detail/${detail}`);
   };
-
 
   return (
     <Box key={symptom.id}>
@@ -66,25 +64,24 @@ function SymptomItem({ symptom }) {
         <List>
           <ListItem
             secondaryAction={
-             
-               
-                 
-              <IconButton edge="end" aria-label="info" onClick={getDetails} >
-                
+              <IconButton edge="end" aria-label="info" onClick={getDetails}>
                 <InfoIcon />
-                
               </IconButton>
-              
-            
-              
             }
           >
-            <Typography variant="h4" color="secondary.dark" onClick={handleClickOpen}>{symptom.symptom}</Typography>
+            <Typography
+              variant="h5"
+              color="secondary.dark"
+              onClick={handleClickOpen}
+            >
+              {symptom.symptom}
+            </Typography>
             <Dialog open={open} onClose={handleClose}>
               <DialogTitle>Intensity</DialogTitle>
               <DialogContent>
                 <DialogContentText>
-                  Please rate the intensity of this symptom on a scale of 1 (mild) to 5 (very intense)
+                  Please rate the intensity of this symptom on a scale of 1
+                  (mild) to 5 (very intense)
                 </DialogContentText>
                 <Slider
                   aria-label="symptom intensity"
@@ -96,13 +93,11 @@ function SymptomItem({ symptom }) {
                   valueLabelDisplay="auto"
                   onChange={handleSlider}
                 />
-                
               </DialogContent>
               <DialogActions>
                 <Button onClick={handleClose}>Cancel</Button>
                 <Button onClick={handleSubmit}>Log</Button>
               </DialogActions>
-              
             </Dialog>
           </ListItem>
         </List>

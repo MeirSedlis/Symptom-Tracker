@@ -1,10 +1,15 @@
-import { List, Typography } from "@mui/material";
+import {
+  List,
+  Typography,
+  Stack,
+  Pagination,
+} from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DetailItem from "../DetailItem/DetailItem.jsx";
 import { useParams, useHistory } from "react-router-dom";
 import { Line } from "react-chartjs-2";
-import {Chart as ChartJS} from "chart.js/auto";
+import { Chart as ChartJS } from "chart.js/auto";
 import { DateTime } from "luxon";
 
 function SymptomDetail() {
@@ -22,23 +27,29 @@ function SymptomDetail() {
 
   const details = useSelector((store) => store.detail);
 
+  const itemsPerPage = 7;
+  const [page, setPage] = useState(1);
+  const [noOfPages] = useState(Math.ceil(details.length / itemsPerPage));
 
-  
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
+
   //format detail data for Chart.js
   const data = details.map((detail) => {
     return detail.intensity;
   });
   const labels = details.map((detail) => {
-    return DateTime.fromISO(detail.inserted_at).toLocaleString(DateTime.DATE_SHORT);
+    return DateTime.fromISO(detail.inserted_at).toLocaleString(
+      DateTime.DATE_SHORT
+    );
   });
 
-
-
-  const detailData= {
+  const detailData = {
     labels: labels.reverse(),
     datasets: [
       {
-         label: "Intensity",
+        label: "Intensity",
         data: data.reverse(),
       },
     ],
@@ -54,11 +65,22 @@ function SymptomDetail() {
       <Typography align="center" variant="h6">
         Symptom Details
       </Typography>
+
       <List>
-        {details.map((log) => {
+        {details
+        .slice((page-1)* itemsPerPage, page * itemsPerPage )
+        .map((log) => {
           return <DetailItem key={log.id} log={log} />;
         })}
       </List>
+      <Pagination
+        count={noOfPages}
+        page={page}
+        onChange={handleChange}
+        defaultPage={1}
+        showFirstButton
+        showLastButton
+      />
       <Line data={detailData} />
     </>
   );
