@@ -76,7 +76,7 @@ function SymptomItem({ symptom }) {
               {symptom.symptom}
             </Typography>
             <Dialog open={open} onClose={handleClose}>
-              <DialogTitle>Intensity</DialogTitle>
+              <DialogTitle>Intensity: {symptom.symptom} </DialogTitle>
               <DialogContent>
                 <DialogContentText>
                   Please rate the intensity of this symptom on a scale of 1
