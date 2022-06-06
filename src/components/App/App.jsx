@@ -1,37 +1,44 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import {
   HashRouter as Router,
   Redirect,
   Route,
   Switch,
-} from 'react-router-dom';
+} from "react-router-dom";
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 
-import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
+import Nav from "../Hardware/Nav/Nav";
+import Footer from "../Hardware/Footer/Footer";
 
-import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import ProtectedRoute from "../Hardware/ProtectedRoute/ProtectedRoute";
 
-import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
-import LandingPage from '../LandingPage/LandingPage';
-import LoginPage from '../LoginPage/LoginPage';
-import RegisterPage from '../RegisterPage/RegisterPage';
+import AboutPage from "../Hardware/AboutPage/AboutPage";
+import UserPage from "../Registration/UserPage/UserPage";
+import InfoPage from "../Hardware/InfoPage/InfoPage";
+import LandingPage from "../Hardware/LandingPage/LandingPage";
+import LoginPage from "../Registration/LoginPage/LoginPage";
+import RegisterPage from "../Registration/RegisterPage/RegisterPage";
 
-import './App.css';
+import "./App.css";
+import SymptomTracker from "../Tracker/SymptomTracker/SymptomTracker";
+import TrackNewForm from "../Tracker/TrackNewForm/TrackNewForm";
+import SymptomDetail from "../Detail View/SymptomDetail/SymptomDetail";
+
+import { createTheme, ThemeProvider } from '@mui/material';
+import Theme from "../Hardware/Theme/Theme.jsx";
 
 function App() {
   const dispatch = useDispatch();
 
-  const user = useSelector(store => store.user);
+  const user = useSelector((store) => store.user);
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_USER' });
+    dispatch({ type: "FETCH_USER" });
   }, [dispatch]);
 
   return (
+    <ThemeProvider theme={Theme}>
     <Router>
       <div>
         <Nav />
@@ -68,46 +75,62 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
-          <Route
+          <ProtectedRoute
+            // logged in shows SymptomTracker else shows LoginPage
             exact
-            path="/login"
+            path="/tracker"
           >
-            {user.id ?
-              // If the user is already logged in, 
+            <SymptomTracker />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows SymptomTracker else shows LoginPage
+            exact
+            path="/track-new"
+          >
+            <TrackNewForm /> 
+
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows Detail Page
+          exact
+          path="/detail/:id"
+          >
+            <SymptomDetail />
+          </ProtectedRoute>
+
+          <Route exact path="/login">
+            {user.id ? (
+              // If the user is already logged in,
               // redirect to the /user page
               <Redirect to="/user" />
-              :
+            ) : (
               // Otherwise, show the login page
               <LoginPage />
-            }
+            )}
           </Route>
 
-          <Route
-            exact
-            path="/registration"
-          >
-            {user.id ?
-              // If the user is already logged in, 
+          <Route exact path="/registration">
+            {user.id ? (
+              // If the user is already logged in,
               // redirect them to the /user page
               <Redirect to="/user" />
-              :
+            ) : (
               // Otherwise, show the registration page
               <RegisterPage />
-            }
+            )}
           </Route>
 
-          <Route
-            exact
-            path="/home"
-          >
-            {user.id ?
-              // If the user is already logged in, 
+          <Route exact path="/home">
+            {user.id ? (
+              // If the user is already logged in,
               // redirect them to the /user page
               <Redirect to="/user" />
-              :
+            ) : (
               // Otherwise, show the Landing page
               <LandingPage />
-            }
+            )}
           </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}
@@ -118,6 +141,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </ThemeProvider>
   );
 }
 
